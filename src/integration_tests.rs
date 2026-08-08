@@ -14,7 +14,6 @@ use crate::lifecycle::*;
 use crate::metadata::*;
 use crate::store::*;
 
-
 fn store() -> ObjectStore {
     ObjectStore::new()
 }
