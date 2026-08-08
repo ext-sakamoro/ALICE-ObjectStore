@@ -8,20 +8,12 @@
     clippy::indexing_slicing
 )]
 
-use crate::bucket::*;
 use crate::errors::*;
 use crate::etag::*;
 use crate::lifecycle::*;
-use crate::list_result::*;
 use crate::metadata::*;
-use crate::multipart::*;
-use crate::object::*;
-use crate::presigned::*;
 use crate::store::*;
-use std::collections::{BTreeMap, HashMap};
-use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
-use super::*;
 
 fn store() -> ObjectStore {
     ObjectStore::new()
