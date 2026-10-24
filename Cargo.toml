@@ -3,7 +3,8 @@ name = "alice-objectstore"
 version = "1.0.0"
 edition = "2021"
 authors = ["Moroya Sakamoto <sakamoro@alicelaw.net>"]
-license = "AGPL-3.0 OR LicenseRef-Commercial"
+license = "LicenseRef-Proprietary"
+publish = false
 description = "S3-compatible object storage engine"
 
 [lib]
