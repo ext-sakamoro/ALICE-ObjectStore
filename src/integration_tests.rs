@@ -184,7 +184,7 @@ fn put_large_data() {
     let mut s = store();
     s.create_bucket("b").unwrap();
     let data = vec![0xAB; 1_000_000];
-    s.put_object("b", "k", data.clone(), None).unwrap();
+    s.put_object("b", "k", data, None).unwrap();
     assert_eq!(s.get_object("b", "k").unwrap().data.len(), 1_000_000);
 }
 
@@ -411,8 +411,8 @@ fn list_objects_empty_bucket() {
 fn list_objects_all() {
     let mut s = store();
     s.create_bucket("b").unwrap();
-    for i in 0..5 {
-        s.put_object("b", &format!("key{i}"), vec![i as u8], None)
+    for i in 0u8..5 {
+        s.put_object("b", &format!("key{i}"), vec![i], None)
             .unwrap();
     }
     let res = s.list_objects("b", None, 10, None).unwrap();
@@ -424,8 +424,8 @@ fn list_objects_all() {
 fn list_objects_paginated() {
     let mut s = store();
     s.create_bucket("b").unwrap();
-    for i in 0..5 {
-        s.put_object("b", &format!("key{i}"), vec![i as u8], None)
+    for i in 0u8..5 {
+        s.put_object("b", &format!("key{i}"), vec![i], None)
             .unwrap();
     }
     let page1 = s.list_objects("b", None, 2, None).unwrap();
@@ -1089,8 +1089,8 @@ fn get_versioning_no_bucket() {
 fn many_objects_pagination_full_scan() {
     let mut s = store();
     s.create_bucket("b").unwrap();
-    for i in 0..20 {
-        s.put_object("b", &format!("obj-{i:03}"), vec![i as u8], None)
+    for i in 0u8..20 {
+        s.put_object("b", &format!("obj-{i:03}"), vec![i], None)
             .unwrap();
     }
     let mut all = Vec::new();
